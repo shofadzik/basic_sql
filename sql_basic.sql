@@ -1,85 +1,84 @@
 CREATE TABLE adzik (
 person_id int,
-last_name varchar(255), --(255) ini karakter
+last_name varchar(255), 
 first_name varchar(255),
 phone_number int,
 created_at timestamp);
 
-INSERT INTO adzik --fungsinya menambah di baris baru
+INSERT INTO adzik 
 (person_id, last_name, first_name, phone_number, created_at)
 VALUES 
 (1,'Umar', 'Zain',120289, NOW()),
 (5,'Ahmad', 'Ali',737283, NOW())
 ;
 
-ALTER TABLE adzik --tambah kolom email
+ALTER TABLE adzik 
 ADD email varchar(255);
 
-ALTER TABLE adzik --tambah kolom salary
+ALTER TABLE adzik 
 ADD salary int;
 
-ALTER TABLE adzik --tambah kolom gender
+ALTER TABLE adzik 
 ADD gender char;
 
-ALTER TABLE adzik --tambah kolom job
+ALTER TABLE adzik 
 ADD job char;
 
-ALTER TABLE adzik --hapus kolom email
+ALTER TABLE adzik 
 DROP COLUMN email;
 
-UPDATE adzik --mengupdate atau mengganti lastname dan firstname dari person id 1 pada table
+UPDATE adzik 
 SET
 last_name = 'Alfred Schmidt',
 first_name= 'Frankfurt'
 WHERE person_id = 1;
 
-UPDATE adzik --mengupdate atau mengganti salary dari person id 1 pada table
+UPDATE adzik 
 SET
 salary = 5000000
 WHERE person_id = 5;
 
-UPDATE adzik --mengupdate atau mengganti job dari person id 1 pada table
+UPDATE adzik
 SET
 job = 'guru'
 WHERE person_id = 1;
 
-UPDATE adzik --mengupdate atau mengganti gender dari person id 1 pada table
+UPDATE adzik 
 SET
 gender = 'L'
 WHERE person_id = 1;
 
-SELECT first_name, last_name --hanya memilih(menampilkan) kolom firstname dan lastname
+SELECT first_name, last_name 
 FROM adzik;
 
-SELECT * --menampilkan semua kolom
+SELECT * 
 FROM adzik;
 
-TRUNCATE TABLE adzik; --hanya menghapus isi tabel, tabel masih ada
+TRUNCATE TABLE adzik; 
 
-DROP TABLE adzik; --menghapus semua tabel
+DROP TABLE adzik; 
 
 -- SQL COMMANDs
 
-SELECT * FROM adzik --hanya menampilkan person_id=1 dari tabel (filter)
+SELECT * FROM adzik 
 WHERE person_id = 1;
 
-SELECT * FROM adzik --hanya menampilkan lastname yang ada hruf A nya disemua dari tabel(filter)
-WHERE last_name LIKE '%A%'; --%A = a dibelakang, A% = a nya didepan
+SELECT * FROM adzik 
+WHERE last_name LIKE '%A%';
 
-SELECT count(salary) from --menghitug jumlah data (jumlah baris)
+SELECT count(salary) from 
 adzik WHERE gender = 'L';
 
-SELECT sum(salary) from --menghitung jumlah salary (total gaji semua)
+SELECT sum(salary) from 
 adzik WHERE gender = 'L';
 
-SELECT job, sum(salary) from --menampilka job dan jumlah gaji dari gender L
+SELECT job, sum(salary) from 
 adzik WHERE gender = 'L'
 GROUP BY job
 ORDER BY job desc;
 
---hasilnya darii program diatas yaitu pns=sum 5m, karyawan=sum 4m, guru=sum 1m
 
-SELECT MAX(salary) from --mencari nilai max pada person id 2
+SELECT MAX(salary) from 
 adzik WHERE person_id = '2';
 
 SELECT MIN(salary) FROM
